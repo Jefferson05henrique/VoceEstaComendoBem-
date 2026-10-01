@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alimentos | Você Está Comendo Bem?</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Você Está Comendo Bem?</h1>
+
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="alimentos.html">Alimentos</a>
+            <a href="#">Cardápio</a>
+            <a href="#">Comparar</a>
+            <a href="#">Estudos</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="pagina-alimentos">
+
+            <h2>Alimentos</h2>
+
+            <p>
+                Pesquise alimentos e consulte suas informações nutricionais.
+            </p>
+
+
+            <div class="filtros">
+
+                <input
+                    type="text"
+                    placeholder="Digite o nome de um alimento..."
+                    id = "campoBusca"
+                >
+
+                <select id="filtroCategoria">
+                
+                    <option value="">Todas as categorias</option>
+
+                    <option>Cereais e derivados</option>
+                    <option>Frutas</option>
+                    <option>Verduras e legumes</option>
+                    <option>Carnes e ovos</option>
+                    <option>Leites e derivados</option>
+                    <option>Leguminosas</option>
+                    <option>Oleaginosas</option>
+                    <option>Óleos e gorduras</option>
+                
+                </select>
+
+                <button>Pesquisar</button>
+
+            </div>
+
+
+            <div class="lista-alimentos" id="listaAlimentos">
+
+                <div class="alimento-card" data-id = "1" data-categoria="Cereais e derivados" data-energia="128"   data-proteina="2.5"    data-carboidrato="28"    data-fibras="1.6">
+
+                    <h3>🍚 Arroz branco cozido</h3>
+
+                    <p>
+                        Preparação à base de arroz branco cozido em água.
+                    </p>
+
+                    <div class="nutrientes">
+
+                        <span>🔥 128 kcal</span>
+                        <span>💪 2,5 g proteína</span>
+                        <span>🌾 28 g carboidratos</span>
+                        <span>🥬 1,6 g fibras</span>
+
+                    </div>
+
+                    <button class="botao-detalhes">
+                        Ver detalhes
+                    </button>
+
+                </div>
+
+
+                <div class="alimento-card" data-id="2" data-categoria="Frutas" data-energia="90"
+                data-proteina="1"
+                data-carboidrato="23"
+                data-fibras="2">
+
+                    <h3>🍌 Banana prata</h3>
+
+                    <p>
+                        Fruta fresca.
+                    </p>
+
+                    <div class="nutrientes">
+
+                        <span>🔥 90 kcal</span>
+                        <span>💪 1,0 g proteína</span>
+                        <span>🌾 23 g carboidratos</span>
+                        <span>🥬 2,0 g fibras</span>
+
+                    </div>
+
+                    <button class="botao-detalhes">
+                        Ver detalhes
+                    </button>
+
+                </div>
+
+
+                <div class="alimento-card" data-id="3" data-categoria="Carnes e ovos" data-energia="143"
+                data-proteina="13"
+                data-carboidrato="1.1"
+                data-fibras="0">
+
+                    <h3>🥚 Ovo de galinha</h3>
+
+                    <p>
+                        Ovo de galinha.
+                    </p>
+
+                    <div class="nutrientes">
+
+                        <span>🔥 143 kcal</span>
+                        <span>💪 13 g proteína</span>
+                        <span>🌾 1,1 g carboidratos</span>
+                        <span>🥬 0 g fibras</span>
+
+                    </div>
+
+                    <button class="botao-detalhes">
+                        Ver detalhes
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div class="modal" id="modalDetalhes">
+
+    <div class="modal-conteudo">
+
+        <button class="modal-fechar" id="fecharModal">✕</button>
+
+        <h2 id="modalNome">Nome do alimento</h2>
+
+        <p id="modalCategoria">Categoria</p>
+
+        <h3>Informações por 100 g</h3>
+
+        <div class="modal-nutrientes">
+
+            <p id="modalEnergia"></p>
+            <p id="modalProteina"></p>
+            <p id="modalCarboidrato"></p>
+            <p id="modalFibras"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <footer>
+
+        <p>
+            Você Está Comendo Bem? © 2026
+        </p>
+
+    </footer>
+
+    <script src="js/dados.js"></script>
+    <script src="js/alimentos.js"></script>
+    <script src="js/modal.js"></script>
+
+</body>
+
+</html>
