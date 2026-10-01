@@ -15,9 +15,9 @@
 
         <nav>
             <a href="index.html">Início</a>
-            <a href="#">Alimentos</a>
-            <a href="#">Cardápio</a>
-            <a href="#">Comparar</a>
+            <a href="alimentos.html" target="_blank">Alimentos</a>
+            <a href="cardapio.html" target="_blank">Cardápio</a>
+            <a href="comparar.html" target="_blank">Comparar</a>
             <a href="#">Estudos</a>
         </nav>
     </header>
@@ -30,10 +30,18 @@
 
             <p>Pesquise Alimentos, consulte informações nutricionais, compare opções e monte seus cardápios</p>
 
+            <!-- list = lista de opções para o campo de busca -->
             <div class="busca">
-                <input type="text" placeholder="Digite o nome de um alimento ...">
+                <input type="text" placeholder="Digite o nome de um alimento ..." id="campoBusca" list="listaAlimentos">
 
-                <button>pesquisar</button>
+                <!-- datalist = lista de opções para o campo de busca -->
+                <datalist id="listaAlimentos">
+                    <option value="🍚 Arroz branco cozido"></option>
+                    <option value="🍌 Banana prata"></option>
+                    <option value="🥚 Ovo de galinha"></option>
+                </datalist>
+
+                <button id="botao-detalhes">pesquisar</button>
             </div>
 
         </section>
@@ -70,10 +78,30 @@
 
     </main>
 
+    <div id="modalDetalhes" class="modal">
+        <div class="modal-conteudo">
+            <button class="modal-fechar" id="fecharModal">✕</button>
+
+            <h2 id="modalNome">Nome do alimento</h2>
+            <span id="modalCategoria">Categoria</span>
+
+            <h3>Informações por 100 g</h3>
+
+            <div class="modal-nutrientes">
+                <p id="modalEnergia"></p>
+                <p id="modalProteina"></p>
+                <p id="modalCarboidrato"></p>
+                <p id="modalFibras"></p>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>Você Está Comendo Bem? ° 2026</p>
     </footer>
     
+    <script src="js/dados.js"></script>
+    <script src="js/modalIndex.js"></script>
 
 </body>
 

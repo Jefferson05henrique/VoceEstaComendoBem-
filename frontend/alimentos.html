@@ -40,12 +40,15 @@
 
             <div class="filtros">
 
+                <!-- Campo de busca = é onde iremos puxar no javascript -->
                 <input
                     type="text"
                     placeholder="Digite o nome de um alimento..."
                     id = "campoBusca"
+                    list="listaAlimentos"
                 >
 
+                <!-- Filtro por categoria = é onde iremos puxar no javascript -->
                 <select id="filtroCategoria">
                 
                     <option value="">Todas as categorias</option>
@@ -66,6 +69,8 @@
             </div>
 
 
+            <!-- Lista de alimentos -->
+             <!-- data-id = "1" = onde iremos puxar os dados do alimentos, lembrando que o data-id é único para cada alimento e por enquanto é temporário -->
             <div class="lista-alimentos" id="listaAlimentos">
 
                 <div class="alimento-card" data-id = "1" data-categoria="Cereais e derivados" data-energia="128"   data-proteina="2.5"    data-carboidrato="28"    data-fibras="1.6">
