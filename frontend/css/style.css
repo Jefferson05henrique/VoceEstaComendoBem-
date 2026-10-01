@@ -375,6 +375,277 @@ footer {
     color: var(--roxo);
 }
 
+/* ==========================================================================
+   PÁGINA CARDÁPIO (cardapio.html)
+   ========================================================================== */
+
+/* Seção de escolha do período */
+.montaCardapio {
+    padding: 60px 50px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.montaCardapio h1 {
+    color: var(--vinho);
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.montaCardapio > div > p {
+    color: #555555;
+    font-size: 16px;
+}
+
+/* Opções (Semanalmente e Mensalmente) */
+.opcoesCardapio {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.opcoesCardapio .opcao {
+    flex: 1;
+    padding: 25px;
+    background-color: var(--branco);
+    border: 2px solid var(--azul);
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.opcoesCardapio .opcao:hover {
+    border-color: var(--roxo);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.opcoesCardapio .opcao h2 {
+    color: var(--vinho);
+    margin-bottom: 10px;
+}
+
+.opcoesCardapio .opcao p {
+    color: #333333;
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.opcoesCardapio button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--azul);
+    color: var(--preto);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.opcoesCardapio button:hover {
+    background-color: var(--roxo);
+    color: var(--branco);
+}
+
+/* Seção principal de montagem do cardápio */
+.montagemCardapio {
+    padding: 0 50px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cardapio-semanal {
+    background-color: var(--branco);
+    border: 2px solid #eeeeee;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Cabeçalho da área da tabela (Título + Busca) */
+.cabecalho-opcao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cabecalho-opcao h2 {
+    color: var(--vinho);
+    font-size: 28px;
+}
+
+.busca-alimento {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.busca-alimento label {
+    font-weight: bold;
+    color: var(--vinho);
+    font-size: 14px;
+}
+
+.busca-alimento input {
+    padding: 10px 14px;
+    border: 2px solid var(--azul);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    min-width: 280px;
+}
+
+.busca-alimento input:focus {
+    border-color: var(--roxo);
+}
+
+/* Tabela Estilizada */
+.tabelacardapio {
+    overflow-x: auto; /* Permite rolagem no celular se a tabela for grande */
+    margin-bottom: 25px;
+}
+
+.tabelacardapio table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.tabelacardapio th,
+.tabelacardapio td {
+    padding: 12px 10px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    font-size: 14px;
+}
+
+.tabelacardapio thead th {
+    background-color: var(--vinho);
+    color: var(--branco);
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.tabelacardapio tbody th {
+    background-color: var(--cinza);
+    color: var(--vinho);
+    text-align: left;
+    font-weight: bold;
+    width: 150px;
+}
+
+.tabelacardapio tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Linha do Veredito e Macronutrientes (Flexbox na horizontal) */
+.vereditoCardapio {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.resultadoCardapio {
+    flex: 1;
+    min-width: 120px;
+    padding: 15px;
+    border: 2px solid var(--azul);
+    border-radius: 10px;
+    background-color: var(--cinza);
+    text-align: center;
+}
+
+.resultadoCardapio h3 {
+    font-size: 14px;
+    color: var(--vinho);
+    margin-bottom: 5px;
+}
+
+.resultadoCardapio p {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--preto);
+}
+
+/* Destaque para o card do Veredito (à esquerda) */
+.resultadoCardapio.destaque-veredito {
+    flex: 2;
+    min-width: 200px;
+    background-color: var(--branco);
+    border-color: var(--roxo);
+    text-align: left;
+}
+
+/* Área inferior: Dados do usuário à esquerda + Gráfico à direita (Grid) */
+.graficocardapio {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.dados-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.resultadoGrafico {
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: var(--cinza);
+}
+
+.resultadoGrafico h3 {
+    font-size: 13px;
+    color: var(--vinho);
+    display: inline;
+    margin-right: 5px;
+}
+
+.resultadoGrafico p {
+    font-size: 14px;
+    font-weight: bold;
+    display: inline;
+}
+
+.resultadoGrafico input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--azul);
+    border-radius: 6px;
+    font-size: 13px;
+    outline: none;
+    background-color: var(--branco);
+}
+
+.resultadoGrafico input:focus {
+    border-color: var(--roxo);
+}
+
+/* Container reservado para o Gráfico */
+.area-grafico {
+    border: 2px dashed var(--roxo);
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+}
+
+.area-grafico canvas {
+    width: 100% !important;
+    max-height: 250px;
+}
+
 /* responsivo */
 
 @media (max-width: 768px) {
@@ -429,4 +700,39 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    /* cardapio.html */
+
+    .montaCardapio,
+    .montagemCardapio {
+        padding: 30px 20px;
+    }
+
+    .opcoesCardapio {
+        flex-direction: column;
+    }
+
+    .cabecalho-opcao {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .busca-alimento {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .busca-alimento input {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .vereditoCardapio {
+        flex-direction: column;
+    }
+
+    .graficocardapio {
+        grid-template-columns: 1fr;
+    }
+    
 }
