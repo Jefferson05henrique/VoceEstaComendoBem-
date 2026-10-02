@@ -31,15 +31,23 @@ botaoAdicionarAlimento.addEventListener("click", function () {
     const nomeDigitado = campoBusca.value;
 
     const alimentoEncontrado = alimentosCardapio.find(function (alimento) {
+        // A função find() é usada para procurar um alimento no array alimentosCardapio que tenha o mesmo nome que o digitado pelo usuário. A função de callback recebe cada alimento do array e compara seu nome com o nome digitado. Se encontrar uma correspondência, retorna o objeto do alimento encontrado.
         return alimento.nome === nomeDigitado;
     });
 
+    // ! = operador de negação, usado para verificar se alimentoEncontrado é falso (ou seja, se o alimento não foi encontrado). Se alimentoEncontrado for falso, o código dentro do bloco if será executado.
     if (!alimentoEncontrado) {
         alert("Alimento não encontrado.");
         return;
     }
 
-    console.log(alimentoEncontrado);
+    const celula = document.querySelector('[data-dia="Segunda-feira"][data-refeicao="almoco"]');
+
+    celula.textContent = alimentoEncontrado.nome; // Atualiza o conteúdo da célula da tabela com o nome do alimento encontrado
+
+    celula.addEventListener("click", function () {
+        celula.textContent = ""; // Limpa o conteúdo da célula da tabela ao clicar nela
+    });
 
 });
 
@@ -88,12 +96,15 @@ function criarTabelaSemanal() {
 
                 return `
                     <tr>
+
                         <th>${dia}</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
+                        <td data-dia="${dia}" data-refeicao="cafe"></td>
+                        <td data-dia="${dia}" data-refeicao="almoco"></td>
+                        <td data-dia="${dia}" data-refeicao="lanche"></td>
+                        <td data-dia="${dia}" data-refeicao="jantar"></td>
+                        <td data-dia="${dia}" data-refeicao="ceia"></td>
+
                     </tr>
                 `;
 
@@ -164,7 +175,7 @@ function criarCardapioMensal() {
                             return `
                                 <tr>
                                     <th>${dia}</th>
-                                    <td></td>
+                                    <td data-dia="${dia}" data-refeicao="cafe"></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
