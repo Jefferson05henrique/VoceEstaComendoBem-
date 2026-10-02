@@ -19,6 +19,7 @@
     </header>
 
     <main>
+
         <!-- SEÇÃO: Escolha do Período -->
         <section class="montaCardapio">
             <div>
@@ -41,135 +42,192 @@
             </div>
         </section>
 
-        <!-- SEÇÃO: Tabela e Resultados -->
-        <section class="montagemCardapio">
-            <div class="cardapio-semanal" id="cardapioSemanal">
-                
-                <header class="cabecalho-opcao">
-                    <h2 id="tituloPeriodo">Semanalmente</h2>
-                    <div class="busca-alimento">
-                        <label for="campoBusca">Escreva o alimento aqui:</label>
-                        <input type="text" placeholder="Digite o nome de um alimento..." id="campoBusca" list="listaAlimentos">
-                        <datalist id="listaAlimentos">
-                            <option value="Arroz Integral"></option>
-                            <option value="Feijão Preto"></option>
-                            <option value="Peito de Frango"></option>
-                            <option value="Salada Verde"></option>
-                        </datalist>
-                    </div>
-                </header>
+        <div id="areaCardapio">
+            <!-- SEÇÃO: Tabela e Resultados -->
+            <section class="montagemCardapio">
+                <div class="cardapio-semanal" id="cardapioSemanal">
+                    
+                    <header class="cabecalho-opcao">
 
-                <!-- TABELA DO CARDÁPIO -->
-                <div class="tabelacardapio">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Dia da Semana</th>
-                                <th>Café da Manhã</th>
-                                <th>Almoço</th>
-                                <th>Lanche da Tarde</th>
-                                <th>Jantar</th>
-                                <th>Ceia</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Segunda-feira</th>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <th>Terça-feira</th>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <th>Quarta-feira</th>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <th>Quinta-feira</th>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <th>Sexta-feira</th>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <th>Sábado</th>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <th>Domingo</th>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <h2 id="tituloPeriodo">Semanalmente</h2>
+                        <div class="busca-alimento">
+
+                            <label for="campoBusca">Escreva o alimento aqui:</label>
+
+                            <input type="text" placeholder="Digite o nome de um alimento..." id="campoBusca" list="listaAlimentos">
+
+                            <button type= "button" id= "botaoAdicionarAlimento">Adicionar Alimento</button>
+
+                            <datalist id="listaAlimentos">
+                                <option value="Arroz Integral"></option>
+                                <option value="Feijão Preto"></option>
+                                <option value="Peito de Frango"></option>
+                                <option value="Salada Verde"></option>
+                            </datalist>
+
+                        </div>
+
+                    </header>
+
+                    <!-- TABELA DO CARDÁPIO -->
+
+                    <div class= "tabelacardapio">
+                        <table id = "tabelaSemanal"></table>
+                    </div>
+
+                    <!-- LINHA DE VEREDITO E MACRONUTRIENTES -->
+                    <div class="vereditoCardapio">
+                        <div class="resultadoCardapio destaque-veredito">
+                            <h3>Veredito:</h3>
+                            <p id="resultadoVeredito">Aguardando dados...</p>
+                        </div>
+
+                        <div class="resultadoCardapio">
+                            <h3>Kcal:</h3>
+                            <p id="resultadoKcal">0</p>
+                        </div>
+
+                        <div class="resultadoCardapio">
+                            <h3>Proteína:</h3>
+                            <p id="resultadoProteina">0g</p>
+                        </div>
+
+                        <div class="resultadoCardapio">
+                            <h3>Carboidratos:</h3>
+                            <p id="resultadoCarboidratos">0g</p>
+                        </div>
+
+                        <div class="resultadoCardapio">
+                            <h3>Fibras:</h3>
+                            <p id="resultadoFibras">0g</p>
+                        </div>
+                    </div>
+
+                    <!-- ÁREA DE DADOS DO USUÁRIO + GRÁFICO -->
+                    <div class="graficocardapio">
+                        <div class="dados-usuario">
+                            <div class="resultadoGrafico">
+                                <h3>Altura:</h3>
+                                <p id="resultadoAltura">-</p>
+                            </div>
+                            <div class="resultadoGrafico">
+                                <h3>Peso:</h3>
+                                <p id="resultadoPeso">-</p>
+                            </div>
+                            <div class="resultadoGrafico">
+                                <h3>IMC:</h3>
+                                <p id="resultadoIMC">-</p>
+                            </div>
+                            <div class="resultadoGrafico">
+                                <h3>Peso Atual:</h3>
+                                <p id="resultadoPesoAtual">-</p>
+                            </div>
+                            <div class="resultadoGrafico">
+                                <input type="text" placeholder="Opinião sobre o cardápio..." id="opiniaoCardapio">
+                            </div>
+                        </div>
+
+                        <!-- Espaço reservado onde o gráfico desenhado no esboço será renderizado -->
+                        <div class="area-grafico">
+                            <canvas id="graficoCardapio"></canvas>
+                        </div>
+                    </div>
+
                 </div>
+            </section>
+
+            <!-- CARDÁPIO MENSAL -->
+            <section class="montagemCardapio" id="cardapioMensal">
+
+                <div class="cabecalho-opcao">
+                    <h2>Cardápio Mensal</h2>
+                    <p>Monte seu cardápio ao longo de quatro semanas.</p>
+                </div>
+
+                <div id="semanasMensais"></div>
 
                 <!-- LINHA DE VEREDITO E MACRONUTRIENTES -->
                 <div class="vereditoCardapio">
+
                     <div class="resultadoCardapio destaque-veredito">
                         <h3>Veredito:</h3>
-                        <p id="resultadoVeredito">Aguardando dados...</p>
+                        <p id="resultadoVereditoMensal">Aguardando dados...</p>
                     </div>
 
                     <div class="resultadoCardapio">
                         <h3>Kcal:</h3>
-                        <p id="resultadoKcal">0</p>
+                        <p id="resultadoKcalMensal">0</p>
                     </div>
 
                     <div class="resultadoCardapio">
                         <h3>Proteína:</h3>
-                        <p id="resultadoProteina">0g</p>
+                        <p id="resultadoProteinaMensal">0g</p>
                     </div>
 
                     <div class="resultadoCardapio">
                         <h3>Carboidratos:</h3>
-                        <p id="resultadoCarboidratos">0g</p>
+                        <p id="resultadoCarboidratosMensal">0g</p>
                     </div>
 
                     <div class="resultadoCardapio">
                         <h3>Fibras:</h3>
-                        <p id="resultadoFibras">0g</p>
+                        <p id="resultadoFibrasMensal">0g</p>
                     </div>
+
                 </div>
 
                 <!-- ÁREA DE DADOS DO USUÁRIO + GRÁFICO -->
                 <div class="graficocardapio">
+
                     <div class="dados-usuario">
+
                         <div class="resultadoGrafico">
                             <h3>Altura:</h3>
-                            <p id="resultadoAltura">-</p>
+                            <p id="resultadoAlturaMensal">-</p>
                         </div>
+
                         <div class="resultadoGrafico">
                             <h3>Peso:</h3>
-                            <p id="resultadoPeso">-</p>
+                            <p id="resultadoPesoMensal">-</p>
                         </div>
+
                         <div class="resultadoGrafico">
                             <h3>IMC:</h3>
-                            <p id="resultadoIMC">-</p>
+                            <p id="resultadoIMCMensal">-</p>
                         </div>
+
                         <div class="resultadoGrafico">
                             <h3>Peso Atual:</h3>
-                            <p id="resultadoPesoAtual">-</p>
+                            <p id="resultadoPesoAtualMensal">-</p>
                         </div>
+
                         <div class="resultadoGrafico">
-                            <input type="text" placeholder="Opinião sobre o cardápio..." id="opiniaoCardapio">
+                            <input
+                                type="text"
+                                placeholder="Opinião sobre o cardápio..."
+                                id="opiniaoCardapioMensal"
+                            >
                         </div>
+
                     </div>
 
-                    <!-- Espaço reservado onde o gráfico desenhado no esboço será renderizado -->
                     <div class="area-grafico">
-                        <canvas id="graficoCardapio"></canvas>
+                        <canvas id="graficoCardapioMensal"></canvas>
                     </div>
+
                 </div>
 
-            </div>
-        </section>
+            </section>
+
+        </div>
+
     </main>
 
     <footer>
         <p>Você Está Comendo Bem? &copy; 2026</p>
     </footer>
+
+    <script src="js/cardapio.js"></script>
 
 </body>
 </html>

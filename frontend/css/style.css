@@ -379,6 +379,14 @@ footer {
    PÁGINA CARDÁPIO (cardapio.html)
    ========================================================================== */
 
+#cardapioSemanal {
+    display: none; /* Inicialmente oculto */
+}
+
+#cardapioMensal {
+    display: none; /* Inicialmente oculto */
+}
+
 /* Seção de escolha do período */
 .montaCardapio {
     padding: 60px 50px 30px;
@@ -461,6 +469,26 @@ footer {
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Cardápio mensal */
+
+#cardapioMensal {
+    background-color: var(--branco);
+    border: 2px solid #eeeeee;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.semana-mensal {
+    margin-top: 30px;
+}
+
+.semana-mensal h3 {
+    color: var(--vinho);
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 /* Cabeçalho da área da tabela (Título + Busca) */
