@@ -17,6 +17,11 @@ const campoBusca =
 // DADOS DOS ALIMENTOS
 // ==========================================================
 
+// Guarda temporariamente o alimento selecionado pelo usuário.
+// Ele será usado quando o usuário clicar em
+// "Adicionar ao cardápio".
+let alimentoSelecionado = null;
+
 // Array temporário com os alimentos.
 //
 // Mais para frente, esses dados não ficarão mais diretamente
@@ -101,6 +106,12 @@ const quantidadeAlimento =
 const botaoConfirmarAlimento =
     document.getElementById("botaoConfirmarAlimento");
 
+const diaAlimento =
+    document.getElementById("diaAlimento");
+
+const refeicaoAlimento =
+    document.getElementById("refeicaoAlimento");
+
 
 // Elementos que receberão as informações
 // do alimento selecionado.
@@ -141,8 +152,6 @@ const sodioModal =
 //
 // Vamos utilizar essa variável depois para
 // adicionar o alimento à refeição escolhida.
-
-let alimentoSelecionado = null;
 
 
 // ==========================================================
@@ -383,38 +392,63 @@ botaoAdicionarAlimento.addEventListener("click", function () {
 botaoConfirmarAlimento.addEventListener("click", function () {
 
     if (!alimentoSelecionado) {
-
         alert("Nenhum alimento foi selecionado.");
 
         return;
-
     }
-
 
     const quantidade =
         Number(quantidadeAlimento.value);
 
-
     if (quantidade <= 0) {
-
         alert("Digite uma quantidade válida.");
 
         return;
-
     }
 
+    // Pega o dia escolhido no modal.
+    const diaSelecionado =
+        diaAlimento.value;
 
-    console.log("Alimento selecionado:", alimentoSelecionado);
+    // Pega a refeição escolhida no modal.
+    const refeicaoSelecionada =
+        refeicaoAlimento.value;
 
-    console.log("Quantidade:", quantidade);
+    // Procura na tabela a célula que corresponde
+    // ao dia e à refeição escolhidos.
+    const celula = document.querySelector(
+            `[data-dia="${diaSelecionado}"][data-refeicao="${refeicaoSelecionada}"]`
+        );
 
+    // Verifica se a célula foi encontrada.
+    if (!celula) {
+        alert("Não foi possível encontrar a refeição escolhida.");
+
+        return;
+    }
+
+    // ao adicionar mais de um alimento ele acrescenta na celular, sem apagar a outra.
+    const alimentoCard = document.createElement("div");
+
+    alimentoCard.classList.add("alimento-cardapio");
+
+    alimentoCard.textContent = `${alimentoSelecionado.nome} (${quantidade}g)`;
+
+    // aqui ele só remove o ultimo alimento adicionado
+    alimentoCard.addEventListener("click", function() {
+        alimentoCard.remove();
+    })
+
+    // add o novo alimento sem apagar os anteriores
+    celula.appendChild(alimentoCard);
 
     // Fecha o modal.
-
     modalAlimento.style.display = "none";
 
-});
+    // Limpa o alimento selecionado para evitar reutilização acidental.
+    alimentoSelecionado = null;
 
+});
 
 // ==========================================================
 // CARDÁPIO SEMANAL
