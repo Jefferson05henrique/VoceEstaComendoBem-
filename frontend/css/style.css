@@ -379,6 +379,10 @@ footer {
    PÁGINA CARDÁPIO (cardapio.html)
    ========================================================================== */
 
+#cardapioDiario {
+    display: none; /* Inicialmente oculto */
+}
+
 #cardapioSemanal {
     display: none; /* Inicialmente oculto */
 }
@@ -454,6 +458,134 @@ footer {
 .opcoesCardapio button:hover {
     background-color: var(--roxo);
     color: var(--branco);
+}
+
+/* ==========================================================
+   MODAL: ADICIONAR ALIMENTO
+   ========================================================== */
+
+/* Modal começa escondido */
+.modal-alimento {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Caixa principal do modal */
+
+.conteudo-modal-alimento {
+    background-color: var(--branco);
+    width: 90%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Cabeçalho do modal */
+
+.cabecalho-modal-alimento {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.cabecalho-modal-alimento h2 {
+    color: var(--vinho);
+    margin: 0;
+}
+
+/* Botão X */
+
+#fecharModalAlimento {
+    border: none;
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--vinho);
+}
+
+/* Área de pesquisa */
+
+.busca-modal-alimento {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.busca-modal-alimento label {
+    font-weight: bold;
+    color: var(--vinho);
+}
+
+.busca-modal-alimento input {
+    padding: 12px;
+    border: 2px solid var(--azul);
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Área das informações */
+
+.informacoes-alimento-modal {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* Área da quantidade */
+
+.quantidade-alimento {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+.quantidade-alimento label {
+    font-weight: bold;
+    color: var(--vinho);
+}
+
+
+.quantidade-alimento input {
+    width: 100px;
+    padding: 10px;
+    border: 2px solid var(--azul);
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Botão de confirmação */
+
+#botaoConfirmarAlimento {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--azul);
+    color: var(--preto);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+#botaoConfirmarAlimento:hover {
+    opacity: 0.85;
 }
 
 /* Seção principal de montagem do cardápio */
