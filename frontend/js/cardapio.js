@@ -432,15 +432,59 @@ botaoConfirmarAlimento.addEventListener("click", function () {
 
     alimentoCard.classList.add("alimento-cardapio");
 
-    alimentoCard.textContent = `${alimentoSelecionado.nome} (${quantidade}g)`;
+    
+    // aqui estamos caluculando cada atributo do alimento
+    const fatorQuantidade = quantidade / 100;
+    
+    const energiaCalculada =
+        alimentoSelecionado.energia * fatorQuantidade;
 
-    // aqui ele só remove o ultimo alimento adicionado
+        const proteinaCalculada =
+        alimentoSelecionado.proteina * fatorQuantidade;
+
+    const carboidratoCalculado =
+        alimentoSelecionado.carboidrato * fatorQuantidade;
+
+    const lipidiosCalculados =
+        alimentoSelecionado.lipidios * fatorQuantidade;
+
+    const fibrasCalculadas =
+        alimentoSelecionado.fibras * fatorQuantidade;
+
+    const calcioCalculado =
+        alimentoSelecionado.calcio * fatorQuantidade;
+
+    const ferroCalculado =
+        alimentoSelecionado.ferro * fatorQuantidade;
+
+    const sodioCalculado =
+        alimentoSelecionado.sodio * fatorQuantidade;
+
+        // aqui ele guardar os resultados de cada atributo, como se fosse o scanf de C, porém, po usuário não ver isso, como no scanf.
+        alimentoCard.dataset.energia = energiaCalculada;
+        alimentoCard.dataset.proteina = proteinaCalculada;
+        alimentoCard.dataset.carboidrato = carboidratoCalculado;
+        alimentoCard.dataset.lipidios = lipidiosCalculados;
+        alimentoCard.dataset.fibras = fibrasCalculadas;
+        alimentoCard.dataset.calcio = calcioCalculado;
+        alimentoCard.dataset.ferro = ferroCalculado;
+        alimentoCard.dataset.sodio = sodioCalculado;
+        
+    // antes ele tava lá em cima, mas agora para funcionar tem que ficar aqui, assim ele pegar todo contexto do calculo e conseguir add o produto na tabela.
+    alimentoCard.textContent = `${alimentoSelecionado.nome} (${quantidade}g) - ${energiaCalculada.toFixed(2)} kcal`;
+
+        // aqui ele só remove o ultimo alimento adicionado
     alimentoCard.addEventListener("click", function() {
         alimentoCard.remove();
     })
 
     // add o novo alimento sem apagar os anteriores
     celula.appendChild(alimentoCard);
+
+    const totalKcal = calcularkcalDia(celula);
+
+    resultadoKcal.textContent = totalKcal.toFixed(2);
+    
 
     // Fecha o modal.
     modalAlimento.style.display = "none";
@@ -472,6 +516,46 @@ botaoSemanal.addEventListener("click", function () {
     criarTabelaSemanal();
 
 });
+
+// função de canculo
+
+function calcularKcalRefeicao(celula) {
+
+    // aqui tudo começa em 0, até encontra os alimentos na celula
+    let totalKcal = 0;
+
+    // aqui ele encontrou os alimentos
+    const alimentos = celula.querySelectorAll(".alimento-cardapio");
+
+    alimentos.forEach(function (alimento) {
+
+        // alimento.dataset.energia pega o valor que guardamos, number transformar em numero dããã e o totalKcal += somar tudo
+        totalKcal += Number(alimento.dataset.energia);
+    });
+
+    // a função não funcionar sem o return, ela que devolve o resultado da funçaõ
+    return totalKcal;
+}
+
+    // função para calcular o dia
+
+function calcularkcalDia(celula) {
+
+    let totalKcal = 0;
+
+    // closest ele vai procurar o elemento pai mais próximo, nesse caso ele vai pegar o elemento "tr", e ali ele vai pega a linha inteira
+    const linha = celula.closest("tr");
+
+    // aqui vai pegar todos esses alimentos, do dia especifico, independente de café, almoço, janta ou ceia 
+    const alimentos = linha.querySelectorAll(".alimento-cardapio");
+
+    alimentos.forEach(function(alimento) {
+
+        totalKcal += Number(alimento.dataset.energia);
+    })
+
+    return totalKcal;
+}
 
 
 // Função para criar a tabela semanal.
